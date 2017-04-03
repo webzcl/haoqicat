@@ -10,24 +10,30 @@ class Login extends Component {
 _handleSubmit(e){
   e.preventDefault();
   let username=this.refs.username.value;
+  let password=this.refs.password.value;
+  let data={
+    "username":username,
+    "password":password
+  }
   // console.log(username);
-  this.props.login(username)
+  this.props.login(data);
+  this.refs.submitForm.reset();
+  this.context.router.push(`/`)
 }
 
   render(){
     return(
-      <div>
-
-        <form onSubmit={this._handleSubmit.bind(this)} >
+      <div className='login'>
+        <form className='form' ref="submitForm" onSubmit={this._handleSubmit.bind(this)} >
             <p>
-              Username:
-              <input ref="username" type="username" />
+              用户名
+              <input className="username" ref="username" type="username" />
             </p>
             <p>
-              Password:
-            <input type="password" />
+              密码
+            <input className="password" ref="password" type="password" />
             </p>
-            <input type="submit" />
+            <input className='submit' type="submit" value="登录"/>
           </form>
       </div>
     )
@@ -37,6 +43,9 @@ _handleSubmit(e){
 Login.PropTypes={
   login:React.PropTypes.func.isRequired
   // username:React.PropType.object.isRequired;
+}
+Login.contextTypes={
+  router:React.PropTypes.object.isRequired
 }
 const mapStateToProps= (state)=>({
   username:state

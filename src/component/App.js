@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from './Header.js'
-import Login from './Login.js'
+import {Provider} from 'react-redux';
+import store from '../store.js'
 
 class App extends Component {
   render(){
     return(
-      <div className="container">
-        <Header/>
-        <Login/>
-      </div>
+      <Provider store={store}>
+        <div className="container">
+          <Header/>
+          {this.props.children}
+        </div>
+      </Provider>
     )
   }
 }

@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+    color: #757575;
+}
+* {
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+h4, figure, figcaption, dl, p {
+    margin: 0;
+}
+
+.container{
+  width:100vw;
+  height:100vh;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav{
+  width: 100%;
+  height: 60px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #08c9f7;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.nav a{
+  color: #fff;
+  font-size: 20px;
+  line-height: 60px;
+}
+.nav a:first-child{
+  margin-right: 10px;
+
+}
+.log a:last-child{
+}
+.nav span{
+  cursor: pointer;
+}
+.login,.logup{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80vw;
+  height: 100vh;
+  background-color: #fff;
+
+}
+.form{
+  margin: 0 auto;
+}
+.submit{
+  margin: 0 auto;
+  margin-top: 20vh;
+  width: 320px;
+  height: 10vh;
+  border: none;
+  background-color: rgba(255, 0, 166, 0.67);
+  font-size: 5vh;
+  color: #fff;
+}
+.logup-submit{
+  background-color: rgb(250, 174, 8);
+}
+
+.form>p{
+  color: #08c9f7;
+  font-size: 25px;
+  margin-top: 3vh;
+}
+.form .user{
+  color: #f70863;
+}
+.form>p input{
+  font-size: 24px;
+  width: 250px;
+  border: none;
+  outline: medium;
+  border-bottom: 3px solid #ccc;
+}
+.username{
+  margin-left: 5px;
+}
+.password{
+  margin-left: 26px;
+}
+@media (max-width:750px){
+  .form>p{
+    font-size: 18px;
+  }
+  .form>p input{
+    width:160px;
+  }
+  .submit{
+    width: 200px;
+    height: 60px;
+    font-size: 30px;
+  }
+  .password{
+    margin-left: 23px;
+  }
+}
