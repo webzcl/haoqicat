@@ -5,7 +5,7 @@ export function login(data) {
   return dispatch=>{
     axios.post('http://tiger.haoduoshipin.com/user/signin',data).then(
       res=>{
-        console.log(res);
+        // console.log(res);
         dispatch({type:'LOGIN',username:res.data.user});
         localStorage.setItem('userId',res.data.userId)
       }
@@ -16,7 +16,7 @@ export function preLogin(userId){
   return dispatch=>{
     axios.get(`http://tiger.haoduoshipin.com/user/${userId}`).then(
       res=>{
-        console.log(res);
+        // console.log(res);
         dispatch({type:'LOGIN',username:res.data.user.username})
       }
     ).catch(
@@ -28,7 +28,7 @@ export function logout(data) {
   return dispatch=>{
     axios.get('http://tiger.haoduoshipin.com/user/logout').then(
       res=>{
-        console.log(res.data.msg);
+        // console.log(res.data.msg);
         dispatch({type:'LOGOUT',isLogin:data})
       }
     )
@@ -39,7 +39,7 @@ export function logup(data){
   return dispatch=>{
     axios.post('http://tiger.haoduoshipin.com/user/signup',data).then(
       res=>{
-        console.log(res);
+        // console.log(res);
         // dispatch({type:'LOGUP',username:data.username,password:data.password})
       }
     ).catch(
@@ -51,12 +51,28 @@ export function logup(data){
 export function getCat(){
   return dispatch=>{
     axios.get('http://tiger.haoduoshipin.com/products').then(
-      res=>{
-        console.log(res.data.products);
-        dispatch({type:'GETCAT',newCat:res.data.products})
-        // let newCat=[{a: 1}, {c: 3}];
-        // dispatch({type:'GETCAT',newCat:newCat})
+      response=>{
+        // console.log(response.data.products);
+        dispatch({type:'GETCATS',newCat:response.data.products})
+
       }
     )
   }
 }
+
+export function purchase(id){
+  console.log(id);
+  return dispatch=>{
+        let data={id:id}
+        dispatch({type:'PURCHASE',id:data})
+      }
+  }
+
+  export function cats(){
+    return dispatch=>{
+      axios.post('http://tiger.haoduoshipin.com/cats').then(
+        res=>console.log(res)
+          // dispatch({type:'CLASSIFICATION',newClassification:response})
+      )
+    }
+  }

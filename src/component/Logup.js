@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {logup} from '../actions/login.js';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+
 
 
 class Logup extends Component {
@@ -9,11 +10,18 @@ class Logup extends Component {
     e.preventDefault();
     let username=this.refs.username.value;
     let password=this.refs.password.value;
+    let passwordAgain=this.refs.passwordAgain.value;
     let data={
       "username":username,
       "password":password
     }
-    this.props.logup(data);
+    if(password==passwordAgain){
+      this.props.logup(data);
+      this.context.router.push(`/`);
+
+    }else{
+      alert('确认密码不正确,请重新输入')
+    }
     this.refs.submitForm.reset()
   }
   componentWillMount(){
@@ -31,6 +39,10 @@ class Logup extends Component {
               密码
             <input className="password" ref="password" type="password" />
             </p>
+            <p className="user">
+              确认密码
+            <input className="passwordAgain" ref="passwordAgain" type="password" />
+            </p>
             <input className='submit logup-submit' type="submit" value="注册"/>
           </form>
       </div>
@@ -40,6 +52,9 @@ class Logup extends Component {
 
 Logup.PropTypes={
   logup:React.PropTypes.func.isRequired
+}
+Logup.contextTypes={
+  router:React.PropTypes.object.isRequired
 }
 const mapStateToProps = (state)=>({
   isLogup:state

@@ -10,13 +10,14 @@ body {
 a {
     text-decoration: none;
 }
-h4, figure, figcaption, dl, p {
+h4, figure, figcaption, dl, p ,ul{
     margin: 0;
+    padding: 0
 }
 
 .container{
   width:100vw;
-  height:100vh;
+  
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -31,15 +32,16 @@ h4, figure, figcaption, dl, p {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  overflow: hidden;
 }
 .nav a{
   color: #fff;
   font-size: 20px;
   line-height: 60px;
+  overflow: hidden;
 }
 .nav a:first-child{
   margin-right: 10px;
-
 }
 .log a:last-child{
 }
@@ -108,4 +110,48 @@ h4, figure, figcaption, dl, p {
   .password{
     margin-left: 23px;
   }
+}
+.main h3{
+  font-size: 40px;
+  color: #000;
+  border-bottom: 5px solid #08c9f7;
+  text-align: center;
+}
+.main ul{
+  width: 56vw;
+}
+.main ul li{
+  width: 271px;
+  position: relative;
+  list-style: none;
+  border: 2px solid #08c9f7;
+  border-radius: 5px;
+  float: left;
+  margin-left: 15px;
+  margin-bottom: 40px
+}
+.main ul li img{
+  display: block;
+  margin: 0;
+  width: 220px;
+  margin: 0 auto;
+}
+.main ul li p{
+  text-align: center;
+  width: 200px;
+  line-height: 30px;
+  margin: 20px auto;
+}
+.main ul li a{
+  position: absolute;
+  bottom: -18px;
+  left: 94px;
+  width: 80px;
+  height: 35px;
+  display: block;
+  border : 2px solid #08c9f7;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 35px;
+  background-color: #fff;
 }

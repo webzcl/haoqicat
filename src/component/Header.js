@@ -8,9 +8,10 @@ class Header extends Component {
 
 componentWillMount(){
   console.log(this.props.isLogin);
+  if(localStorage.userId){
     let userId=window.localStorage.getItem('userId');
     this.props.preLogin(userId)
-  
+  }
 }
 handleClick(){
   let data=false;
@@ -24,7 +25,7 @@ handleClick(){
       <div className='nav'>
         <Link to= "/" >首页</Link>
         <div className='log'>
-          <Link to= "/login" >{this.props.isLogin ? `${this.props.username}` : '登录'}</Link>
+          <Link to= {this.props.isLogin ? "/personalcenter" :"/login"} >{this.props.isLogin ? `${this.props.username}` : '登录'}</Link>
           <span onClick={this.handleClick.bind(this)}>{this.props.isLogin ? '退出' : null }</span>
           <Link to= "/logup" >{this.props.isLogin ? null : '注册'}</Link>
         </div>
